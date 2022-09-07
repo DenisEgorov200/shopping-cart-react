@@ -1,0 +1,94 @@
+@use '../../scss/' as *;
+
+.header {
+  position: relative;
+  padding: 15px 0;
+  @include flex(center, space-between);
+
+  .headerLeft {
+    @include flex(center, space-between);
+  }
+
+  .headerMenuBurger {
+    background: $background-settings;
+    border-radius: 20px;
+    padding: 17px;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+
+    img {
+      margin: 0 10px 0 0;
+      max-width: 100%;
+    }
+  }
+
+  .headerInputWrapper {
+    display: flex;
+    position: relative;
+    background: $background-settings;
+    border-radius: 20px;
+    cursor: pointer;
+
+    img {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 100%;
+    }
+  }
+
+  .headerSearch {
+    width: 100%;
+    height: 100%;
+    padding: 18px 0 18px 35px;
+    border: none;
+    outline: none;
+    background: $background-settings;
+    border-radius: 20px;
+  }
+
+  .headerLogo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .headerRight {
+    @include flex(center, space-between);
+
+    .headerIcon {
+      @include flex(center, center);
+      position: relative;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin: 0 20px 0 0;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: darken($color: $white, $amount: 10);
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .headerItems {
+    @include flex(center, center);
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: $color-notification;
+    color: $white;
+  }
+}

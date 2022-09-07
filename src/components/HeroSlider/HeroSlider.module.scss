@@ -1,0 +1,56 @@
+@use '../../scss/' as *;
+
+.slider {
+
+    .sliderItem {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        padding: 70px;
+        border-radius: 20px;
+    }
+
+    .sliderTitle {
+        max-width: 429px;
+        font-weight: 400;
+        font-size: 52px;
+        line-height: 78px;
+        color: $black;
+        margin: 0 0 9px 0;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    .sliderDesc {
+        font-size: 20px;
+        line-height: 30px;
+        margin: 0 0 27px 0;
+    }
+    
+    .sliderNavNext,
+    .sliderNavPrev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background: $white;
+        border-radius: 50%;
+        padding: 20px;
+        z-index: 1;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .sliderNavPrev {
+        left: 300px;
+    }
+
+    .sliderNavNext {
+        right: 300px;
+        transform: translateY(-50%) rotate(180deg);
+    }
+}

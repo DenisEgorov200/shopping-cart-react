@@ -1,0 +1,28 @@
+@use '../../scss/' as *;
+
+.button {
+    display: inline-block;
+    padding: 15px 20px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;;
+    background: $background-settings;
+    color: $primary-color;
+    border-radius: 40px;
+    transition: background .3s ease-in-out;
+
+    border: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    img {
+        max-width: 100%;
+        margin: 0 11px 0 0;
+    }
+
+    &:hover {
+        background: darken($color: $background-settings, $amount: 10);
+    }
+}

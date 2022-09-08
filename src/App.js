@@ -1,13 +1,17 @@
 import Header from './components/Header/Header'
+import HeroSlider from './components/HeroSlider/HeroSlider'
+import CardList from './components/CardList/CardList'
+import Drawer from './components/Drawer/Drawer'
 
 import styles from './App.module.scss'
-import HeroSlider from './components/HeroSlider/HeroSlider'
 
 function App() {
   return (
     <div className={styles.container}>
-      <Header />
+      <Drawer />
+      {/* <Header />
       <HeroSlider />
+      <CardList /> */}
     </div>
   )
 }

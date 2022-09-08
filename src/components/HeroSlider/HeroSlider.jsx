@@ -1,18 +1,19 @@
 import React from 'react'
 import { useRef } from 'react'
 
-import Button from '../Button/Button'
+import Button from '../Discover/Discover'
 import HeroSliderData from './HeroSliderData'
 
 import styles from './HeroSlider.module.scss'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper';
+import { Autoplay, Navigation, Pagination } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const HeroSlider = () => {
   const sliderNavPrevRef = useRef(null);
@@ -20,11 +21,24 @@ const HeroSlider = () => {
 
   return (
     <Swiper
-      modules={[Navigation]}
+      modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={15}
       slidesPerView={1.5}
       centeredSlides={true}
       loop={true}
+      autoplay={{
+        delay: 5000,
+      }}
+      pagination={{
+        el: `.${styles.sliderPagination}`,
+        bulletClass: `${styles.sliderPaginationBullets}`,
+        bulletActiveClass: `${styles.sliderPaginationBulletsActive}`,
+        type: 'bullets',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + '<img src="' + (HeroSliderData[index].paginationImg) + '"/>' + '</span>'
+        }
+      }}
       navigation={{
         prevEl: sliderNavPrevRef.current,
         nextEl: sliderNavNextRef.current
@@ -53,6 +67,7 @@ const HeroSlider = () => {
       <div className={styles.sliderNavNext} ref={sliderNavNextRef}>
         <img src="/assets/icon/Arrow.svg" alt="Arrow" />
       </div>
+      <div className={styles.sliderPagination}></div>
     </Swiper>
   )
 }

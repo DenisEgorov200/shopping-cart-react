@@ -1,11 +1,12 @@
 @use '../../scss/' as *;
 
 .slider {
+    position: relative;
 
     .sliderItem {
         @include flex(flex-start, flex-start);
         flex-direction: column;
-        padding: 70px;
+        padding: 130px 70px;
         border-radius: 20px;
     }
 
@@ -52,5 +53,68 @@
     .sliderNavNext {
         right: 300px;
         transform: translateY(-50%) rotate(180deg);
+    }
+
+    .sliderPagination {
+        position: absolute;
+        bottom: 20px;
+        z-index: 2;
+        @include flex(center, center);
+
+        .sliderPaginationBullets {
+            position: relative;
+            @include flex(center, center);
+            width: 60px;
+            height: 60px;
+            border: 4px solid $white;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:not(:last-child) {
+                margin: 0 10px 0 0;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -15px;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                border-radius: 10px;
+                background: rgba($color: #1c3242, $alpha: .2);
+                opacity: .5;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                bottom: -15px;
+                left: 0;
+                width: 0;
+                height: 4px;
+                border-radius: 10px;
+                background: #1c3242;
+            }
+
+            &.sliderPaginationBulletsActive::after {
+                width: 100%;
+                animation: paginationLine 5s linear;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .sliderPaginationBulletsActive {
+            background: #fcc10a;
+        }
+    }
+}
+
+@keyframes paginationLine {
+    from {
+        width: 0;
     }
 }

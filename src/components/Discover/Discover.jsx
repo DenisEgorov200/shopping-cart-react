@@ -1,8 +1,8 @@
 import React from 'react'
 
-import styles from './Button.module.scss'
+import styles from './Discover.module.scss'
 
-const Button = props => {
+const Discover = props => {
   return (
     <a href='#' className={`${styles.button} ${props.className}`}>
         <span>{props.children}</span>
@@ -11,4 +11,4 @@ const Button = props => {
   )
 }
 
-export default Button
+export default Discover
